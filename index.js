@@ -1,4 +1,4 @@
-const port = 3000
+var port = process.env.PORT || 3000;
 const http = require('http')
 const WebSocket = require('ws');
 const express = require('express')
@@ -74,4 +74,7 @@ setInterval(() => {
     }
 }, 60000)
 
-server.listen(port)
+server.listen(port, function() {
+    console.log('Listening on ' + port);
+    console.log('Adress: ' + server.address);
+});
