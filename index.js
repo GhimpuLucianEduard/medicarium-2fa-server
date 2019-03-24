@@ -58,7 +58,7 @@ app.use((error, req, res, next) => {
 });
 
 const server = http.createServer(app)
-const wsServer = new WebSocket.Server({port: 8080});
+const wsServer = new WebSocket.Server({server});
 var smsSlave = null
 
 wsServer.on('connection', ws => {
@@ -75,6 +75,5 @@ setInterval(() => {
 }, 60000)
 
 server.listen(port, function() {
-    console.log('Listening on ' + port);
-    console.log('Adress: ' + server.address);
+    console.log('Listening on ' + port)
 });
